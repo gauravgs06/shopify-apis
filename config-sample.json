@@ -1,0 +1,12 @@
+{
+  "tac":{
+    "api_token":"shppa_xxxxxxxxx",
+    "shop_url": "https://mystore.myshopify.com",
+    "api_version": "2022-10"
+  },
+  "ke":{
+    "api_token":"shppa_xxxxxxxxx",
+    "shop_url": "https://mystore.myshopify.com",
+    "api_version": "2022-10"
+  }
+}
