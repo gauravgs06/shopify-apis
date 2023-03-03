@@ -1,5 +1,6 @@
-from discounts.createDiscountSet import createDiscountSet, payload_edp, payload_hairmask
+from discounts.createDiscountSet import createDiscountSet, payload_edp, payload_lipstick
 from discounts.createDiscountBatch import createDiscountBatch
+from discounts.exportDiscount import exportDiscounts
 from lib.apiClient import SyncAPIClient
 
 import json
@@ -19,7 +20,7 @@ headers = {
 
 SyncAPIClient.setTimeDelay(0.51)
 discountSetGenerator = createDiscountSet(base_url + api_version,
-                                         payload_edp, headers=headers, count=5, start_counter=6)
+                                         payload_lipstick, headers=headers, count=1, start_counter=3)
 
 for discountSet in discountSetGenerator:
     if discountSet.status_code == 201 or discountSet.status_code == 200:
@@ -28,6 +29,10 @@ for discountSet in discountSetGenerator:
         print("Created:", title)
         print("Starting with Discount Code Import on:", title)
         createDiscountBatch(id, base_url+api_version, headers)
+        print("Discount Code Creating")
+        print("Starting with Code Exporting...")
+        exportDiscounts(id, url=base_url + api_version,
+                        headers=headers, params={"limit": 250})
     else:
         print("Error: Could not create duscount set:", json.loads(
             discountSet.request.body)['price_rule']['title'])

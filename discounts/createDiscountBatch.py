@@ -16,7 +16,7 @@ def createDiscountBatch(price_rule_id, url, headers=None, payload=None, params=N
     TOTAL_COUPONS = total_coupons
     COUPON_LENGTH = 8
 
-    iterations = TOTAL_COUPONS//BATCH_SIZE
+    iterations = TOTAL_COUPONS//BATCH_SIZE if TOTAL_COUPONS > BATCH_SIZE else 1
     counter = 0
     start_time = time.time()
     apiClient = SyncAPIClient.getApiClient()
@@ -55,3 +55,4 @@ def createDiscountBatch(price_rule_id, url, headers=None, payload=None, params=N
             print("Error:", e)
     end_time = time.time()
     print("Total Time Taken:", end_time-start_time, "sec")
+

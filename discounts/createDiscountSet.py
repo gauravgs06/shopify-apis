@@ -39,6 +39,44 @@ payload_edp = {
     }
 }
 
+payload_lipstick = {
+    "price_rule": {
+        "value_type": "fixed_amount",
+        "value": "-599.0",
+        "customer_selection": "all",
+        "target_type": "line_item",
+        "target_selection": "entitled",
+        "allocation_method": "across",
+        "allocation_limit": None,
+        "once_per_customer": False,
+        "usage_limit": 1,
+        "starts_at": "2023-03-01T00:00:00+05:30",
+        "ends_at": "2023-04-11T00:00:00+05:30",
+        "entitled_product_ids": [],
+        "entitled_variant_ids": [],
+        "entitled_collection_ids": [
+            412710764772
+        ],
+        "entitled_country_ids": [],
+        "prerequisite_product_ids": [],
+        "prerequisite_variant_ids": [],
+        "prerequisite_collection_ids": [],
+        "customer_segment_prerequisite_ids": [],
+        "prerequisite_customer_ids": [],
+        "prerequisite_subtotal_range": None,
+        "prerequisite_quantity_range": None,
+        "prerequisite_shipping_price_range": None,
+        "prerequisite_to_entitlement_quantity_ratio": {
+            "prerequisite_quantity": None,
+            "entitled_quantity": None
+        },
+        "prerequisite_to_entitlement_purchase": {
+            "prerequisite_amount": None
+        },
+        "title": "GPAY Feb Fragrances - ",
+    }
+}
+
 payload_hairmask = {
     "price_rule": {
         "value_type": "fixed_amount",
