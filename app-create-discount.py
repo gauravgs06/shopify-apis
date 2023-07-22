@@ -18,4 +18,5 @@ headers = {
 }
 
 SyncAPIClient.setTimeDelay(0.51)
-createDiscountBatch(1235564069092, base_url+api_version, headers, total_coupons=9800)
+createDiscountBatch(1248220709092, base_url+api_version,
+                    headers, total_coupons=34800)
