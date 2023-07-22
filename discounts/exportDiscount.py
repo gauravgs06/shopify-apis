@@ -42,9 +42,7 @@ def exportDiscounts(price_rule_id, url: str, headers=None, payload=None, params=
                 print("Error:", e, "| Response:", response.content)
     except Exception as e:
         print("Error", e)
-
-    responseTitle = requests.get(RESOURCE_URL_TITLE.format(
-        price_rule_id=price_rule_id), headers=headers)
+    responseTitle = requests.get(url+RESOURCE_URL_TITLE.format(price_rule_id=price_rule_id), headers=headers)
 
     title = responseTitle.json()['price_rule']['title']
     df = pandas.DataFrame(discount_codes)

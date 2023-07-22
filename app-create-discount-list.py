@@ -1,5 +1,4 @@
-from discounts.createDiscountSet import createDiscountSet, payload_edp
-from discounts.createDiscountBatch import createDiscountBatch
+from discounts.createCouponsFromList import createDiscount
 from lib.apiClient import SyncAPIClient
 
 import json
@@ -18,4 +17,4 @@ headers = {
 }
 
 SyncAPIClient.setTimeDelay(0.51)
-createDiscountBatch(1235564069092, base_url+api_version, headers, total_coupons=9800)
+createDiscount(1245959913700, base_url+api_version, headers)
