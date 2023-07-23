@@ -3,11 +3,11 @@ from discounts.createDiscountBatch import createDiscountBatch
 from discounts.exportDiscount import exportDiscounts
 from lib.apiClient import SyncAPIClient
 
-import dotenv
+# import dotenv
 import json
 
 # import threading
-dotenv.load_dotenv("./.env")
+# dotenv.load_dotenv("./.env")
 
 brand = "tac"
 with open("./config.json", "r") as file:
