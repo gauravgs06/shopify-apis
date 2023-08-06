@@ -23,7 +23,7 @@ headers = {
 
 SyncAPIClient.setTimeDelay(0.51)
 discountSetGenerator = createDiscountSet(base_url + api_version,
-                                         payload_edp, headers=headers, count=20, start_counter=11)
+                                         payload_edp, headers=headers, count=1, start_counter=8)
 
 for discountSet in discountSetGenerator:
     if discountSet.status_code == 201 or discountSet.status_code == 200:

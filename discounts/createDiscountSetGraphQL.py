@@ -2,6 +2,21 @@ from lib.apiClient import RequestTask, SyncAPIClient
 import copy
 
 payload_edp = {
+    "query": """
+    mutation priceRuleCreate($priceRule: PriceRuleInput!) {
+        priceRuleCreate(priceRule: $priceRule) {
+            priceRule {
+            id
+            title
+            }
+            priceRuleUserErrors {
+            code
+            field
+            message
+            }
+        }
+    }
+    """,
     "price_rule": {
         "value_type": "fixed_amount",
         "value": "-598.0",

@@ -17,4 +17,4 @@ headers = {
 }
 
 SyncAPIClient.setTimeDelay(0.51)
-createDiscount(1245959913700, base_url+api_version, headers)
+createDiscount(1250292367588, base_url+api_version, headers)

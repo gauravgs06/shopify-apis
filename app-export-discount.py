@@ -16,5 +16,5 @@ headers = {
 }
 
 SyncAPIClient.setTimeDelay(0.51)
-exportDiscounts(1248220709092, base_url+api_version,
+exportDiscounts(1250292367588, base_url+api_version,
                 headers, params={"limit": 250})
