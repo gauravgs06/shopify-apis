@@ -1,225 +1,224 @@
 from lib.apiClient import RequestTask, SyncAPIClient
 import copy
 
-payload_edp = {
+payload_edp_graph = {
     "query": """
-    mutation priceRuleCreate($priceRule: PriceRuleInput!) {
+      mutation priceRuleCreate($priceRule: PriceRuleInput!) {
         priceRuleCreate(priceRule: $priceRule) {
-            priceRule {
+          priceRule {
             id
             title
-            }
-            priceRuleUserErrors {
+            legacyResourceId
+          }
+          priceRuleUserErrors {
             code
             field
             message
-            }
+          }
         }
-    }
+      }
     """,
-    "price_rule": {
-        "value_type": "fixed_amount",
-        "value": "-598.0",
-        "customer_selection": "all",
-        "target_type": "line_item",
-        "target_selection": "entitled",
-        "allocation_method": "across",
-        "allocation_limit": None,
-        "once_per_customer": False,
-        "usage_limit": 1,
-        "starts_at": "2023-07-01T00:00:00+05:30",
-        "ends_at": None,
-        "entitled_product_ids": [],
-        "entitled_variant_ids": [],
-        "entitled_collection_ids": [
-            414003331300
-        ],
-        "entitled_country_ids": [],
-        "prerequisite_product_ids": [],
-        "prerequisite_variant_ids": [],
-        "prerequisite_collection_ids": [],
-        "customer_segment_prerequisite_ids": [],
-        "prerequisite_customer_ids": [],
-        "prerequisite_subtotal_range": None,
-        "prerequisite_quantity_range": None,
-        "prerequisite_shipping_price_range": None,
-        "prerequisite_to_entitlement_quantity_ratio": {
-            "prerequisite_quantity": None,
-            "entitled_quantity": None
-        },
-        "prerequisite_to_entitlement_purchase": {
-            "prerequisite_amount": None
-        },
-        "title": "GPAY Aug Fragrances - ",
-    }
+    "variables": {
+        "priceRule": {
+            "allocationLimit": None,
+            "allocationMethod": "ACROSS",
+            "combinesWith": {
+                "orderDiscounts": True,
+                "productDiscounts": True,
+                "shippingDiscounts": False,
+            },
+            "customerSelection": {"forAllCustomers": True},
+            "itemEntitlements": {
+                "collectionIds": ["gid://shopify/Collection/414003331300"],
+                "productIds": [],
+                "productVariantIds": [],
+                "targetAllLineItems": False,
+            },
+            "itemPrerequisites": {
+                "collectionIds": [],
+                "productIds": [],
+                "productVariantIds": [],
+            },
+            "oncePerCustomer": False,
+            "prerequisiteQuantityRange": {
+                "greaterThan": 1,
+                "greaterThanOrEqualTo": 1,
+                "lessThan": 1,
+                "lessThanOrEqualTo": 1,
+            },
+            "prerequisiteToEntitlementQuantityRatio": None,
+            "target": "LINE_ITEM",
+            "title": "GPAY Aug Fragrances - ",
+            "usageLimit": 1,
+            "validityPeriod": {"start": "2023-08-01T00:00:00+05:30"},
+            "value": {"fixedAmountValue": "-598"},
+        }
+    },
+}
+payload_edp_graph_phone = {
+    "query": """
+      mutation priceRuleCreate($priceRule: PriceRuleInput!) {
+        priceRuleCreate(priceRule: $priceRule) {
+          priceRule {
+            id
+            title
+            legacyResourceId
+          }
+          priceRuleUserErrors {
+            code
+            field
+            message
+          }
+        }
+      }
+    """,
+    "variables": {
+        "priceRule": {
+            "allocationLimit": None,
+            "allocationMethod": "ACROSS",
+            "combinesWith": {
+                "orderDiscounts": True,
+                "productDiscounts": True,
+                "shippingDiscounts": False,
+            },
+            "customerSelection": {"forAllCustomers": True},
+            "itemEntitlements": {
+                "collectionIds": ["gid://shopify/Collection/414003331300"],
+                "productIds": [],
+                "productVariantIds": [],
+                "targetAllLineItems": False,
+            },
+            "itemPrerequisites": {
+                "collectionIds": [],
+                "productIds": [],
+                "productVariantIds": [],
+            },
+            "oncePerCustomer": False,
+            "prerequisiteQuantityRange": {
+                "greaterThan": 1,
+                "greaterThanOrEqualTo": 1,
+                "lessThan": 1,
+                "lessThanOrEqualTo": 1,
+            },
+            "prerequisiteToEntitlementQuantityRatio": None,
+            "target": "LINE_ITEM",
+            "title": "PhonePe Aug Fragrances - ",
+            "usageLimit": 1,
+            "validityPeriod": {"start": "2023-08-01T00:00:00+05:30"},
+            "value": {"fixedAmountValue": "-598"},
+        }
+    },
+}
+payload_lipstick_graph_phone = {
+    "query": """
+      mutation priceRuleCreate($priceRule: PriceRuleInput!) {
+        priceRuleCreate(priceRule: $priceRule) {
+          priceRule {
+            id
+            title
+            legacyResourceId
+          }
+          priceRuleUserErrors {
+            code
+            field
+            message
+          }
+        }
+      }
+    """,
+    "variables": {
+        "priceRule": {
+            "allocationLimit": None,
+            "allocationMethod": "ACROSS",
+            "combinesWith": {
+                "orderDiscounts": True,
+                "productDiscounts": True,
+                "shippingDiscounts": False,
+            },
+            "customerSelection": {"forAllCustomers": True},
+            "itemEntitlements": {
+                "collectionIds": ["gid://shopify/Collection/412710764772"],
+                "productIds": [],
+                "productVariantIds": [],
+                "targetAllLineItems": False,
+            },
+            "itemPrerequisites": {
+                "collectionIds": [],
+                "productIds": [],
+                "productVariantIds": [],
+            },
+            "oncePerCustomer": False,
+            "prerequisiteToEntitlementQuantityRatio": None,
+            "target": "LINE_ITEM",
+            "title": "PhonePe Aug Lipstick - ",
+            "usageLimit": 1,
+            "validityPeriod": {"start": "2023-08-01T00:00:00+05:30"},
+            "value": {"fixedAmountValue": "-549"},
+        }
+    },
+}
+payload_lipstick_graph_gpay = {
+    "query": """
+      mutation priceRuleCreate($priceRule: PriceRuleInput!) {
+        priceRuleCreate(priceRule: $priceRule) {
+          priceRule {
+            id
+            title
+            legacyResourceId
+          }
+          priceRuleUserErrors {
+            code
+            field
+            message
+          }
+        }
+      }
+    """,
+    "variables": {
+        "priceRule": {
+            "allocationLimit": None,
+            "allocationMethod": "ACROSS",
+            "combinesWith": {
+                "orderDiscounts": True,
+                "productDiscounts": True,
+                "shippingDiscounts": False,
+            },
+            "customerSelection": {"forAllCustomers": True},
+            "itemEntitlements": {
+                "collectionIds": ["gid://shopify/Collection/412710764772"],
+                "productIds": [],
+                "productVariantIds": [],
+                "targetAllLineItems": False,
+            },
+            "itemPrerequisites": {
+                "collectionIds": [],
+                "productIds": [],
+                "productVariantIds": [],
+            },
+            "oncePerCustomer": False,
+            "prerequisiteToEntitlementQuantityRatio": None,
+            "target": "LINE_ITEM",
+            "title": "GPay Aug Lipstick 2 - ",
+            "usageLimit": 1,
+            "validityPeriod": {"start": "2023-08-01T00:00:00+05:30"},
+            "value": {"fixedAmountValue": "-400"},
+        }
+    },
 }
 
-payload_lipstick = {
-    "price_rule": {
-        "value_type": "fixed_amount",
-        "value": "-599.0",
-        "customer_selection": "all",
-        "target_type": "line_item",
-        "target_selection": "entitled",
-        "allocation_method": "across",
-        "allocation_limit": None,
-        "once_per_customer": False,
-        "usage_limit": 1,
-        "starts_at": "2023-03-01T00:00:00+05:30",
-        "ends_at": "2023-04-11T00:00:00+05:30",
-        "entitled_product_ids": [],
-        "entitled_variant_ids": [],
-        "entitled_collection_ids": [
-            412710764772
-        ],
-        "entitled_country_ids": [],
-        "prerequisite_product_ids": [],
-        "prerequisite_variant_ids": [],
-        "prerequisite_collection_ids": [],
-        "customer_segment_prerequisite_ids": [],
-        "prerequisite_customer_ids": [],
-        "prerequisite_subtotal_range": None,
-        "prerequisite_quantity_range": None,
-        "prerequisite_shipping_price_range": None,
-        "prerequisite_to_entitlement_quantity_ratio": {
-            "prerequisite_quantity": None,
-            "entitled_quantity": None
-        },
-        "prerequisite_to_entitlement_purchase": {
-            "prerequisite_amount": None
-        },
-        "title": "GPAY Aug Lipsticks - ",
-    }
-}
-
-payload_hairmask = {
-    "price_rule": {
-        "value_type": "fixed_amount",
-        "value": "-479.0",
-        "customer_selection": "all",
-        "target_type": "line_item",
-        "target_selection": "entitled",
-        "allocation_method": "across",
-        "allocation_limit": None,
-        "once_per_customer": False,
-        "usage_limit": 1,
-        "starts_at": "2022-02-01T00:00:00+05:30",
-        "ends_at": None,
-        "entitled_product_ids": [
-            7512506433760
-        ],
-        "entitled_variant_ids": [],
-        "entitled_collection_ids": [],
-        "entitled_country_ids": [],
-        "prerequisite_product_ids": [],
-        "prerequisite_variant_ids": [],
-        "prerequisite_collection_ids": [],
-        "customer_segment_prerequisite_ids": [],
-        "prerequisite_customer_ids": [],
-        "prerequisite_subtotal_range": None,
-        "prerequisite_quantity_range": None,
-        "prerequisite_shipping_price_range": None,
-        "prerequisite_to_entitlement_quantity_ratio": {
-            "prerequisite_quantity": None,
-            "entitled_quantity": None
-        },
-        "prerequisite_to_entitlement_purchase": {
-            "prerequisite_amount": None
-        },
-        "title": "GPAY Aug Hairmask - "
-    }
-}
-
-payload_tint = {
-    "price_rule": {
-        "value_type": "fixed_amount",
-        "value": "-206.0",
-        "customer_selection": "all",
-        "target_type": "line_item",
-        "target_selection": "entitled",
-        "allocation_method": "across",
-        "allocation_limit": None,
-        "once_per_customer": False,
-        "usage_limit": 1,
-        "starts_at": "2023-01-01T00:00:00+05:30",
-        "ends_at": None,
-        "entitled_product_ids": [],
-        "entitled_variant_ids": [],
-        "entitled_collection_ids": [
-            414096916708
-        ],
-        "entitled_country_ids": [],
-        "prerequisite_product_ids": [],
-        "prerequisite_variant_ids": [],
-        "prerequisite_collection_ids": [],
-        "customer_segment_prerequisite_ids": [],
-        "prerequisite_customer_ids": [],
-        "prerequisite_subtotal_range": None,
-        "prerequisite_quantity_range": None,
-        "prerequisite_shipping_price_range": None,
-        "prerequisite_to_entitlement_quantity_ratio": {
-            "prerequisite_quantity": None,
-            "entitled_quantity": None
-        },
-        "prerequisite_to_entitlement_purchase": {
-            "prerequisite_amount": None
-        },
-        "title": "GPAY Aug Tints - "
-    }
-}
-
-payload_holicolor = {
-    "price_rule": {
-        "value_type": "fixed_amount",
-        "value": "-750.0",
-        "customer_selection": "all",
-        "target_type": "line_item",
-        "target_selection": "entitled",
-        "allocation_method": "across",
-        "allocation_limit": None,
-        "once_per_customer": False,
-        "usage_limit": 1,
-        "starts_at": "2023-03-01T00:00:00+05:30",
-        "ends_at": None,
-        "entitled_product_ids": [
-            7578254147812
-        ],
-        "entitled_variant_ids": [],
-        "entitled_collection_ids": [],
-        "entitled_country_ids": [],
-        "prerequisite_product_ids": [],
-        "prerequisite_variant_ids": [],
-        "prerequisite_collection_ids": [],
-        "customer_segment_prerequisite_ids": [],
-        "prerequisite_customer_ids": [],
-        "prerequisite_subtotal_range": None,
-        "prerequisite_quantity_range": None,
-        "prerequisite_shipping_price_range": None,
-        "prerequisite_to_entitlement_quantity_ratio": {
-            "prerequisite_quantity": None,
-            "entitled_quantity": None
-        },
-        "prerequisite_to_entitlement_purchase": {
-            "prerequisite_amount": None
-        },
-        "title": "GPAY MAR COLOR - "
-    }
-}
-
-
-def createDiscountSet(baseUrl, discountPayload, headers, count: int, start_counter: int):
+def createDiscountSet(
+    baseUrl, discountPayload, headers, count: int, start_counter: int
+):
     apiClient = SyncAPIClient.getApiClient()
-    url = baseUrl + "/price_rules.json"
+    url = baseUrl + "/graphql.json"
     upto_counter = start_counter + count - 1
-    title = discountPayload['price_rule']['title']
+    title = discountPayload["variables"]["priceRule"]["title"]
     counter = start_counter
     while counter <= upto_counter:
         payload = copy.deepcopy(discountPayload)
-        payload['price_rule']['title'] = title + str(counter)
+        payload["variables"]["priceRule"]["title"] = title + str(counter)
         response = apiClient.runAdhocTask(
-            RequestTask(
-                method="POST", url=url, headers=headers, payload=payload
-            )
+            RequestTask(method="POST", url=url, headers=headers, payload=payload)
         )
         # print("Created:", counter, "of", upto_counter)
         counter += 1

@@ -1,11 +1,11 @@
 {
-  "tac":{
-    "api_token":"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",
+  "tac": {
+    "api_token": "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",
     "shop_url": "https://kehpl.myshopify.com",
-    "api_version": "2023-01"
+    "api_version": "2023-07"
   },
-  "ke":{
-    "api_token":"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",
+  "ke": {
+    "api_token": "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",
     "shop_url": "https://khadi-essentials.myshopify.com",
     "api_version": "2022-10"
   }

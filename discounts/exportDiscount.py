@@ -48,4 +48,4 @@ def exportDiscounts(price_rule_id, url: str, headers=None, payload=None, params=
     df = pandas.DataFrame(discount_codes)
     df = df[["code"]]
     df.columns = ["Vouchers"]
-    df.to_csv(f'{title}.csv', index=False)
+    df.to_csv(f'exports/{title}.csv', index=False)

@@ -1,4 +1,5 @@
-from discounts.createDiscountSet import createDiscountSet, payload_edp, payload_lipstick
+# from discounts.createDiscountSet import createDiscountSet, payload_edp, payload_lipstick
+from discounts.createDiscountSetGraphQL import createDiscountSet, payload_edp_graph
 from discounts.createDiscountBatch import createDiscountBatch
 from discounts.exportDiscount import exportDiscounts
 from lib.apiClient import SyncAPIClient
@@ -23,12 +24,12 @@ headers = {
 
 SyncAPIClient.setTimeDelay(0.51)
 discountSetGenerator = createDiscountSet(base_url + api_version,
-                                         payload_edp, headers=headers, count=1, start_counter=8)
+                                         payload_edp_graph, headers=headers, count=10, start_counter=16)
 
 for discountSet in discountSetGenerator:
     if discountSet.status_code == 201 or discountSet.status_code == 200:
-        title = discountSet.json()['price_rule']['title']
-        id = discountSet.json()['price_rule']['id']
+        title = discountSet.json()["data"]["priceRuleCreate"]['priceRule']['title']
+        id = discountSet.json()["data"]["priceRuleCreate"]['priceRule']['legacyResourceId']
         print("Created:", title)
         print("Starting with Discount Code Import on:", title)
         createDiscountBatch(id, base_url+api_version, headers)
@@ -38,4 +39,4 @@ for discountSet in discountSetGenerator:
                         headers=headers, params={"limit": 250})
     else:
         print("Error: Could not create duscount set:", json.loads(
-            discountSet.request.body)['price_rule']['title'])
+            discountSet.request.body)["data"]["priceRuleCreate"]['priceRule']['title'])
