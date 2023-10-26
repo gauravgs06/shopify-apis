@@ -7,6 +7,11 @@
   "ke": {
     "api_token": "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",
     "shop_url": "https://khadi-essentials.myshopify.com",
-    "api_version": "2022-10"
+    "api_version": "2023-10"
+  },
+  "dev": {
+    "api_token": "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",
+    "shop_url": "https://tac-dev.myshopify.com",
+    "api_version": "2023-10"
   }
 }

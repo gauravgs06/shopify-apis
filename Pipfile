@@ -8,6 +8,7 @@ requests = "*"
 pandas = "*"
 python-dotenv = "*"
 shopifyapi = "*"
+openpyxl = "*"
 
 [dev-packages]
 
