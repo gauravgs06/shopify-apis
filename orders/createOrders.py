@@ -10,8 +10,8 @@ base_url = config["shop_url"]
 api_version = config["api_version"]
 resource_url = "orders"
 
-input = pandas.read_excel("Dispatch - IM (4).xlsx",sheet_name="25th Oct.")
-productList = pandas.read_csv("products-tac-2023-Oct-25.csv").set_index("handle")
+input = pandas.read_excel("Diwali Gifting - 1.xlsx")
+productList = pandas.read_csv("products-tac-2023-Oct-27.csv").set_index("handle")
 params = {"api_version": "2023-10"}
 
 headers = {
@@ -69,7 +69,7 @@ for i in range(input.shape[0]):
                 "discount_codes": [
                     {"code": "IM100", "amount": "100", "type": "percentage"}
                 ],
-                "tags":"IM"
+                "tags":"Diwali Gift"
             }
         }
 

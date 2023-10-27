@@ -3,7 +3,7 @@ import json
 from datetime import date
 
 brand = "tac" 
-products_json = json.load(open(f'product-list.json', encoding="utf8"))['products']
+products_json = json.load(open(f'products-tac.json', encoding="utf8"))['products']
 data = dict()
 data["Product ID"] = []
 data["Variant ID"] = []
