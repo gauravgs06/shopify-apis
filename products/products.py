@@ -12,6 +12,7 @@ data['Title'] = []
 data['image'] = []
 data['handle'] = []
 data['MRP'] = []
+data['price'] = []
 data['Created Date'] = []
 for i in range(len(products_json)):
     product = products_json[i]
@@ -22,6 +23,7 @@ for i in range(len(products_json)):
     data["handle"].append(product['handle'])
     data["Created Date"].append(product['created_at'])
     data["MRP"].append(product['variants'][0]['compare_at_price'])
+    data["price"].append(product['variants'][0]['price'])
     try:
         data["image"].append(product['image']['src'])
     except:
